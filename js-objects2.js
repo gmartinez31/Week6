@@ -43,11 +43,51 @@ console.log(' ');
 daughter.showInfo();
 
 
-
-
 //////////////////////////////////////// #3 ////////////////////////////////////////
+// Rewrite this function below as a class //
+// function Person(name) {
+//     this.name = name;
+//     this.friends = [];
+// }
 
+// Person.prototype.addFriend = function (friend) {
+//     this.friends.push(friend);
+// };
 
+// Person.prototype.createGreeting = function (other) {
+//     return 'Yo ' + other.name + '! from ' + this.name + '.';
+// };
+
+// Person.prototype.greet = function (other) {
+//     console.log(this.createGreeting(other));
+// };
+
+class Person {
+    constructor (name) {
+        this.name = name;
+        this.friends = [];
+    }
+    addFriend (friend) {
+        this.friends.push(friend);
+    }
+    createGreeting (other) {
+        return 'Yo ' + other + '! from ' + this.name + '.';
+    }
+    greet (other) {
+        console.log(this.createGreeting(other));
+    }
+    lazygreet (this, other) {
+        setTimeout (console.log(this.createGreeting(other)), 2000);
+    };
+    // setTimeout(lazygreet (other) {
+    //     console.log(this.createGreeting(other));
+    // }, 2000);
+}
+var joe = new Person('Joe');
+joe.addFriend('Jimmy');
+console.log(joe.createGreeting('Joe'));
+joe.greet('pepe');
+joe.lazygreet('sam');
 
 
 //////////////////////////////////////// #4 ////////////////////////////////////////
